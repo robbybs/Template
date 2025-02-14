@@ -3,14 +3,15 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.ksp)
     id("kotlin-parcelize")
+    alias(libs.plugins.hiltAndroid)
 }
 
 android {
-    namespace = "com.rbs.kointemplate"
+    namespace = "com.rbs.hilttemplate"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.rbs.kointemplate"
+        applicationId = "com.rbs.hilttemplate"
         minSdk = 26
         targetSdk = 34
         versionCode = 1
@@ -65,7 +66,8 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.lifecycle.livedata.ktx)
 
-    implementation(libs.koin.android)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
